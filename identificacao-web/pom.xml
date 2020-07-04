@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.efc.identificacaoweb</groupId>
+  <artifactId>identificacao-web</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+  <name>identificacao-web</name>
+  <dependencies>
+  	<dependency>
+	    <groupId>javax</groupId>
+	    <artifactId>javaee-api</artifactId>
+	    <version>8.0.1</version>
+	    <scope>provided</scope>
+  	</dependency>
+  	
+  	<dependency>
+	    <groupId>com.efc.identificacaoejb</groupId>
+	    <artifactId>identificacao-ejb</artifactId>
+	    <type>ejb-client</type>
+	    <version>1.0</version>
+  	</dependency>
+  	
+  </dependencies>
+  <build>
+    <sourceDirectory>${basedir}/src</sourceDirectory>
+    <resources>
+      <resource>
+        <directory>${basedir}/src</directory>
+        <excludes>
+          <exclude>**/*.java</exclude>
+        </excludes>
+      </resource>
+    </resources>
+    <plugins>
+      <plugin>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>
+          <warSourceDirectory>${basedir}/WebContent</warSourceDirectory>
+          <failOnMissingWebXml>false</failOnMissingWebXml>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.0</version>
+        <configuration>
+          <source>13</source>
+          <target>13</target>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
